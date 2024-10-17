@@ -14,29 +14,32 @@ namespace ColaEstatica
 
         private void BtnEnqueue_Click(object sender, EventArgs e)
         {
+
+            DialogResult result = MessageBox.Show("El dato es prioritario?", "Pregunta", MessageBoxButtons.YesNo);
             try
             {
                 int number = Convert.ToInt32(TxtNumberAdd.Text);
-                if (!queueNumbers_Priority.IsFull()) 
+                if (result == DialogResult.Yes)
                 {
-                    queueNumbers_Priority.Enqueue(number);
-                    TxtNumberAdd.Clear();
-                    LisboxPriority.Items.Add(number.ToString());
-                    return;
+                    if (!queueNumbers_Priority.IsFull())
+                    {
+                        queueNumbers_Priority.Enqueue(number);
+                        TxtNumberAdd.Clear();
+                        LisboxPriority.Items.Add(number.ToString());
+                        return;
+                    }
                 }
-
-                if (!queueNumbers.IsFull())
+                if (result == DialogResult.No)
                 {
-                    queueNumbers.Enqueue(number);
-                    TxtNumberAdd.Clear();
-                    LisBxDataNumber.Items.Add(number.ToString());
-                    return;
+                    if (!queueNumbers.IsFull())
+                    {
+                        queueNumbers.Enqueue(number);
+                        TxtNumberAdd.Clear();
+                        LisBxDataNumber.Items.Add(number.ToString());
+                        return;
+                    }
                 }
-
                 MessageBox.Show("La cola esta llena, si quieres introducir mas datos borra alugnos con el boton remove");
-
-
-
                 TxtNumberAdd.Clear();
             }
             catch (System.FormatException)
@@ -68,7 +71,7 @@ namespace ColaEstatica
         {
 
             MessageBox.Show("en la cola prioridad hay " + queueNumbers_Priority.Size().ToString() + " espacios ocupados en la cola estatica de 5");
-            MessageBox.Show("en la cola sin normal hay " + queueNumbers.Size().ToString() + " espacios ocupados en la cola estatica de 5");
+            MessageBox.Show("en la cola normal hay " + queueNumbers.Size().ToString() + " espacios ocupados en la cola estatica de 5");
             return;
         }
 

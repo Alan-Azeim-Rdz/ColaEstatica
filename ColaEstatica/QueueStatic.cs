@@ -54,7 +54,7 @@ namespace ColaEstatica
             string ticket = queueNumber[0].ToString();
 
             // Desplazar los elementos restantes hacia la izquierda
-            for (int i = 0; i < count;)
+            for (int i = 0; i < count - 1;)
             {
                queueNumber[i] = queueNumber[i + 1];
                 i++;
