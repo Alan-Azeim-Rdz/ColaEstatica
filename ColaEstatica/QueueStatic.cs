@@ -51,7 +51,7 @@ namespace ColaEstatica
                 return "La cola está vacía.";
             }
 
-            string ticket = queueNumber[0].ToString();
+            string numberInHead = queueNumber[0].ToString();
 
             // Desplazar los elementos restantes hacia la izquierda
             for (int i = 0; i < count - 1;)
@@ -61,7 +61,7 @@ namespace ColaEstatica
             }
 
             count--;
-            return ticket;
+            return numberInHead;
         }
 
         public int Size()
@@ -77,10 +77,8 @@ namespace ColaEstatica
                 return "La cola está vacía.";
             }
 
-            string ticket = queueNumber[0].ToString();
-
-            // Devolver el ticket en la posición del frente sin eliminarlo
-            return ticket;
+            string numberInTheHead = queueNumber[0].ToString();
+            return numberInTheHead;
         }
 
 
