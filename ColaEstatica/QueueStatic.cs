@@ -17,7 +17,7 @@ namespace ColaEstatica
         {
             head = 0;
             count = 0;
-            queueNumber = new int[5];
+            queueNumber = new int[3];
         }
 
 
@@ -28,21 +28,61 @@ namespace ColaEstatica
 
         public bool IsFull()
         {
-            return count == sice;
+            return count == queueNumber.Length;
         }
 
         public void Enqueue(int Number)
         {
             if (!IsFull())
             {
-               queueNumber[count] = Number;
+                queueNumber[count] = Number;
+                count++;
                 return;
             }
 
-            MessageBox.Show("ya no hay boletos que califiquen al descuento");
             return;
 
         }
+
+        public string Dequeue()
+        {
+            if (IsEmpty())
+            {
+                return "La cola está vacía.";
+            }
+
+            string ticket = queueNumber[0].ToString();
+
+            // Desplazar los elementos restantes hacia la izquierda
+            for (int i = 0; i < count;)
+            {
+               queueNumber[i] = queueNumber[i + 1];
+                i++;
+            }
+
+            count--;
+            return ticket;
+        }
+
+        public int Size()
+        {
+
+            return count;
+        }
+
+        public string Peek()
+        {
+            if (IsEmpty())
+            {
+                return "La cola está vacía.";
+            }
+
+            string ticket = queueNumber[0].ToString();
+
+            // Devolver el ticket en la posición del frente sin eliminarlo
+            return ticket;
+        }
+
 
     }
 }
