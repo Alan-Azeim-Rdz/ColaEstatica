@@ -10,14 +10,14 @@ namespace ColaEstatica
     {
         int head;
         int count;
-        public int[] queueNumber;
+        public int?[] queueNumber;
 
 
         public QueueStatic()
         {
             head = 0;
             count = 0;
-            queueNumber = new int[3];
+            queueNumber = new int?[3];
         }
 
 
@@ -56,11 +56,13 @@ namespace ColaEstatica
             // Desplazar los elementos restantes hacia la izquierda
             for (int i = 0; i < count - 1;)
             {
-               queueNumber[i] = queueNumber[i + 1];
+                queueNumber[i] = queueNumber[i + 1];
                 i++;
-            }
+            } 
 
             count--;
+            queueNumber[count] = null;
+
             return numberInHead;
         }
 

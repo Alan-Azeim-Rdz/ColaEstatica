@@ -15,11 +15,11 @@ namespace ColaEstatica
         private void BtnEnqueue_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("El dato es prioritario?", "Pregunta", MessageBoxButtons.YesNo);
+
             try
             {
                 int number = Convert.ToInt32(TxtNumberAdd.Text);
-                if (result == DialogResult.Yes)
+                if (number % 2 == 0)
                 {
                     if (!queueNumbers_Priority.IsFull())
                     {
@@ -29,7 +29,7 @@ namespace ColaEstatica
                         return;
                     }
                 }
-                if (result == DialogResult.No)
+                if (number % 2 != 0)
                 {
                     if (!queueNumbers.IsFull())
                     {
@@ -52,7 +52,7 @@ namespace ColaEstatica
 
         private void BtnDequeue_Click(object sender, EventArgs e)
         {
-            if (!queueNumbers_Priority.IsEmpty()) 
+            if (!queueNumbers_Priority.IsEmpty())
             {
                 MessageBox.Show(queueNumbers_Priority.Dequeue());
                 LisboxPriority.Items.RemoveAt(0);
@@ -71,14 +71,30 @@ namespace ColaEstatica
         {
 
             MessageBox.Show("en la cola prioridad hay " + queueNumbers_Priority.Size().ToString() + " espacios ocupados en la cola estatica de 5");
-            MessageBox.Show("en la cola normal hay " + queueNumbers.Size().ToString() + " espacios ocupados en la cola estatica de 5");
-            return;
         }
 
         private void BtnPeek_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(queueNumbers_Priority.Peek());
-            MessageBox.Show(queueNumbers.Peek());
+            if (!(queueNumbers_Priority.IsEmpty()))
+            {
+                MessageBox.Show(queueNumbers_Priority.Peek());
+                return;
+            }
+
+            if (!(queueNumbers.IsEmpty()))
+            {
+                MessageBox.Show(queueNumbers.Peek());
+                return;
+            }
+
+            MessageBox.Show("No existen datos por mostrar");
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("en la cola normal hay " + queueNumbers.Size().ToString() + " espacios ocupados en la cola estatica de 5");
         }
     }
 }
