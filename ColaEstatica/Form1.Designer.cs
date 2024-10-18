@@ -31,7 +31,7 @@
             BtnEnqueue = new Button();
             BtnDequeue = new Button();
             BtnPeek = new Button();
-            BtnIsFull = new Button();
+            BtnSizeP = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,7 +41,7 @@
             LisboxPriority = new ListBox();
             label5 = new Label();
             label6 = new Label();
-            button1 = new Button();
+            BtnSizeIn = new Button();
             label7 = new Label();
             SuspendLayout();
             // 
@@ -75,15 +75,15 @@
             BtnPeek.UseVisualStyleBackColor = true;
             BtnPeek.Click += BtnPeek_Click;
             // 
-            // BtnIsFull
+            // BtnSizeP
             // 
-            BtnIsFull.Location = new Point(230, 204);
-            BtnIsFull.Name = "BtnIsFull";
-            BtnIsFull.Size = new Size(75, 23);
-            BtnIsFull.TabIndex = 3;
-            BtnIsFull.Text = "size";
-            BtnIsFull.UseVisualStyleBackColor = true;
-            BtnIsFull.Click += BtnIsFull_Click;
+            BtnSizeP.Location = new Point(230, 204);
+            BtnSizeP.Name = "BtnSizeP";
+            BtnSizeP.Size = new Size(75, 23);
+            BtnSizeP.TabIndex = 3;
+            BtnSizeP.Text = "size";
+            BtnSizeP.UseVisualStyleBackColor = true;
+            BtnSizeP.Click += BtnSizeP_Click;
             // 
             // label1
             // 
@@ -166,15 +166,15 @@
             label6.TabIndex = 12;
             label6.Text = "Prioridad 2 impares";
             // 
-            // button1
+            // BtnSizeIn
             // 
-            button1.Location = new Point(230, 253);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 13;
-            button1.Text = "size";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtnSizeIn.Location = new Point(230, 253);
+            BtnSizeIn.Name = "BtnSizeIn";
+            BtnSizeIn.Size = new Size(75, 23);
+            BtnSizeIn.TabIndex = 13;
+            BtnSizeIn.Text = "size";
+            BtnSizeIn.UseVisualStyleBackColor = true;
+            BtnSizeIn.Click += BtnSizeIn_Click;
             // 
             // label7
             // 
@@ -191,7 +191,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(851, 450);
             Controls.Add(label7);
-            Controls.Add(button1);
+            Controls.Add(BtnSizeIn);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(LisboxPriority);
@@ -201,7 +201,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(BtnIsFull);
+            Controls.Add(BtnSizeP);
             Controls.Add(BtnPeek);
             Controls.Add(BtnDequeue);
             Controls.Add(BtnEnqueue);
@@ -216,7 +216,7 @@
         private Button BtnEnqueue;
         private Button BtnDequeue;
         private Button BtnPeek;
-        private Button BtnIsFull;
+        private Button BtnSizeP;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -226,7 +226,7 @@
         private ListBox LisboxPriority;
         private Label label5;
         private Label label6;
-        private Button button1;
+        private Button BtnSizeIn;
         private Label label7;
     }
 }

@@ -67,11 +67,6 @@ namespace ColaEstatica
             MessageBox.Show("No hay datos para sacar");
         }
 
-        private void BtnIsFull_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("en la cola prioridad hay " + queueNumbers_Priority.Size().ToString() + " espacios ocupados en la cola estatica de 5");
-        }
 
         private void BtnPeek_Click(object sender, EventArgs e)
         {
@@ -92,9 +87,14 @@ namespace ColaEstatica
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnSizeIn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("en la cola normal hay " + queueNumbers.Size().ToString() + " espacios ocupados en la cola estatica de 5");
+        }
+
+        private void BtnSizeP_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("en la cola prioridad hay " + queueNumbers_Priority.Size().ToString() + " espacios ocupados en la cola estatica de 5");
         }
     }
 }

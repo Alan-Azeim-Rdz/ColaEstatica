@@ -17,7 +17,7 @@ namespace ColaEstatica
         {
             head = 0;
             count = 0;
-            queueNumber = new int?[3];
+            queueNumber = new int?[5];
         }
 
 
