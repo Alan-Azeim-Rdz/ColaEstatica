@@ -10,14 +10,14 @@ namespace ColaEstatica
     {
         int head;
         int count;
-        public int?[] queueNumber;
+        public int?[] data_number;
 
 
         public QueueStatic()
         {
             head = 0;
             count = 0;
-            queueNumber = new int?[5];
+            data_number = new int?[5];
         }
 
 
@@ -28,14 +28,14 @@ namespace ColaEstatica
 
         public bool IsFull()
         {
-            return count == queueNumber.Length;
+            return count == data_number.Length;
         }
 
         public void Enqueue(int Number)
         {
             if (!IsFull())
             {
-                queueNumber[count] = Number;
+                data_number[count] = Number;
                 count++;
                 return;
             }
@@ -51,17 +51,17 @@ namespace ColaEstatica
                 return "La cola está vacía.";
             }
 
-            string numberInHead = queueNumber[0].ToString();
+            string numberInHead = data_number[0].ToString();
 
             // Desplazar los elementos restantes hacia la izquierda
             for (int i = 0; i < count - 1;)
             {
-                queueNumber[i] = queueNumber[i + 1];
+                data_number[i] = data_number[i + 1];
                 i++;
             } 
 
             count--;
-            queueNumber[count] = null;
+            data_number[count] = null;
 
             return numberInHead;
         }
@@ -79,7 +79,7 @@ namespace ColaEstatica
                 return "La cola está vacía.";
             }
 
-            string numberInTheHead = queueNumber[0].ToString();
+            string numberInTheHead = data_number[0].ToString();
             return numberInTheHead;
         }
 
